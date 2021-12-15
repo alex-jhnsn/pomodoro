@@ -1,5 +1,6 @@
 import React, { FC, ReactElement } from "react";
 import styled from "styled-components";
+import { PrimaryButton } from "./Button";
 
 interface TimerProps {
   time: number;
@@ -34,7 +35,6 @@ const Timer: FC<TimerProps> = ({ time }) => {
           {/* <Scale divisions={divisions} /> */}
           <svg x={99-time} overflow="visible">{Scale(12)}</svg>
         </svg>
-        
       </svg>
     </TimerContainer>
   )
@@ -50,7 +50,7 @@ const Scale = (divisions: number) => {
 
   for (let i = 0; i < divisions; i++) {
     const section = 
-    <svg x={50*i} overflow="visible">
+    <svg key={i} x={50*i} overflow="visible">
       <rect x="0" width="2" height="10" fill="#fff" />
       <rect x="10" width="2" height="5" fill="#fff" />
       <rect x="20" width="2" height="5" fill="#fff" />
